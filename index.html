@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥰 Saint-Valentin avec Edouard 🥰</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .gif-container {
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 80px;
+            position: relative;
+        }
+
+        button {
+            font-size: 1.2em;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnOui {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #btnNon {
+            background: linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%);
+            color: #555;
+        }
+
+        .celebration {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .celebration.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .love-letter {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-letter::before {
+            content: '💌';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            right: -10px;
+            top: -10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .love-letter p {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.8;
+            text-align: left;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-letter .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+
+        .celebration h2 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 12px 30px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Elodie, veux-tu être ma Valentine ? 💕</h1>
+        
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXc1OGpzdzR3dTU5ZnM4aXp4MTlkZWE0NXpxOHVvOTA2d3gyOXBreSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/IzXiddo2twMmdmU8Lv/giphy.gif" alt="Cute bear gif">
+        </div>
+
+        <div class="buttons" id="buttonContainer">
+            <button id="btnOui">Oui !</button>
+            <button id="btnNon">Non</button>
+        </div>
+
+        <div class="celebration" id="celebration">
+            <h2>Je le savais ! ✨</h2>
+            <div class="love-letter">
+                <p>Tu viens d’accepter de passer ce 14 février avec moi… trop tard pour faire marche arrière 😉</p>
+                <p>Prépare-toi à une journée spéciale, un peu folle, et tendre.</p>
+                <p>Merci d’être ma Valentine, aujourd’hui et pour tous les jours à venir ❤️</p>
+                <p class="signature">Edouard</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnOui = document.getElementById('btnOui');
+        const btnNon = document.getElementById('btnNon');
+        const celebration = document.getElementById('celebration');
+        const buttonContainer = document.getElementById('buttonContainer');
+
+        // Quand on clique sur "Oui"
+        btnOui.addEventListener('click', function() {
+            buttonContainer.style.display = 'none';
+            celebration.classList.add('show');
+            
+            // Confettis effect
+            for (let i = 0; i < 50; i++) {
+                createHeart();
+            }
+        });
+
+        // Quand on essaie de cliquer sur "Non"
+        btnNon.addEventListener('mouseenter', moveButton);
+        btnNon.addEventListener('click', moveButton);
+        btnNon.addEventListener('touchstart', moveButton);
+
+        function moveButton(e) {
+            e.preventDefault();
+            
+            // Mettre le bouton en position absolute s'il ne l'est pas déjà
+            if (btnNon.style.position !== 'absolute') {
+                btnNon.style.position = 'absolute';
+                btnNon.style.transition = 'all 0.3s ease';
+                buttonContainer.style.minHeight = '200px';
+            }
+            
+            const container = buttonContainer.getBoundingClientRect();
+            const button = btnNon.getBoundingClientRect();
+            
+            // Position actuelle du bouton
+            const currentLeft = btnNon.offsetLeft || button.left - container.left;
+            const currentTop = btnNon.offsetTop || button.top - container.top;
+            
+            // Calculer une nouvelle position aléatoire LOIN de la position actuelle
+            let randomX, randomY, distance;
+            let attempts = 0;
+            
+            do {
+                randomX = Math.random() * (container.width - button.width - 20);
+                randomY = Math.random() * (180 - button.height);
+                
+                // Calculer la distance entre ancienne et nouvelle position
+                distance = Math.sqrt(Math.pow(randomX - currentLeft, 2) + Math.pow(randomY - currentTop, 2));
+                attempts++;
+            } while (distance < 150 && attempts < 20); // Au moins 150px de distance
+            
+            btnNon.style.left = randomX + 'px';
+            btnNon.style.top = randomY + 'px';
+        }
+
+        // Fonction pour créer des coeurs qui tombent
+        function createHeart() {
+            //const hearts = ['❤️', '💕', '💖', '💗', '💓'];
+            const hearts = ['❤️'];
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-50px';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            heart.style.opacity = '0.8';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Animation CSS pour les coeurs qui tombent
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    top: 100vh;
+                    transform: translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
